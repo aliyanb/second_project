@@ -1,0 +1,152 @@
+
+<!DOCTYPE HTML>
+{% load static %}
+<!--
+ Verti by HTML5 UP
+ html5up.net | @ajlkn
+ Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+-->
+<html>
+ <head>
+  <title>BestBook</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no" />
+  <link rel="stylesheet" href="{% static 'assets/css/main.css'%}" />
+ </head>
+ <body class="is-preload homepage">
+  <div id="page-wrapper">
+
+   <!-- Header -->
+    <div id="header-wrapper">
+     <header id="header" class="container">
+
+      <!-- Logo -->
+       <div id="logo">
+        <h1><a href="index.html"></a></h1>
+        <span></span>
+       </div>
+
+      <!-- Nav -->
+      <nav id="nav">
+        <ul>
+          <ul>
+         <li><a href="{%url 'register'%}">Register</a></li>
+         <li><a href="{%url 'login'%}">Login</a></li>
+         <li><a href="{%url 'logout'%}">Logout</a></li>
+        </ul>
+       </nav>
+
+     </header>
+    </div>
+
+   <!-- Banner -->
+    <div id="banner-wrapper">
+     <div id="banner" class="box container">
+      <div class="row">
+       <div class="col-7 col-12-medium">
+        <h2>Hi. Здесь фанаты Стивена Кинга.</h2>
+        <p>Для любителей триллера и научной фантазии))</p>
+       </div>
+       <div class="col-5 col-12-medium">
+        <ul>
+         <li><a href="http://127.0.0.1:8000/admin/post/post/add/" class="button large icon solid fa-arrow-circle-right">Create Post</a></li>
+         <li><a href="http://127.0.0.1:8000/admin/accounts/user/add/" class="button large icon solid fa-arrow-circle-right">Create User</a></li>
+        </ul>
+       </div>
+      </div>
+     </div>
+    </div>
+{% if user.is_authenticated %}
+   <!-- Features -->
+    <div id="features-wrapper">
+     <div class="container">
+      <div class="row">
+       {% for i in posts%}
+       <div class="col-4 col-12-medium">
+
+        <!-- Box -->
+
+         <section class="box feature">
+          <a href="#" class="image featured"><img src="{{i.image.url}}" alt="" width="220px" height="270px"/></a>
+          <div class="inner">
+           <header>
+            <h2>{{i.name}}</h2>
+            <p>{{i.created_at}}</p>
+            <p>{{i.updated_at}}</p>
+           </header>
+           <p>{{i.description|truncatechars:100}}</p>
+          </div>
+         </section>
+
+       </div>
+       {% endfor %}
+      </div>
+     </div>
+    </div>
+{%endif%}
+   <!-- Main -->
+    <div id="main-wrapper">
+     <div class="container">
+      <div class="row gtr-200">
+       <div class="col-4 col-12-medium">
+
+        <!-- Sidebar -->
+         <div id="sidebar">
+          <section class="widget thumbnails">
+           <h3>Interesting stuff</h3>
+           <div class="grid">
+            <div class="row gtr-50">
+             <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic04.jpg'%}" alt="" /></a></div>
+             <div class="col-6"><a href="#" class="image fit"><img src="{% static 'images/pic05.jpg'%}" alt="" /></a></div>
+            </div>
+           </div>
+           <a href="#" class="button icon fa-file-alt">More</a>
+          </section>
+         </div>
+
+       </div>
+       <div class="col-8 col-12-medium imp-medium">
+
+        <!-- Content -->
+         <div id="content">
+          <section class="last">
+
+
+<h2></h2>
+           <p> <strong>Сти́вен Э́двин Кинг</strong> (англ. Stephen Edwin King; род. 21 сентября 1947, Портленд, Мэн, США) — американский писатель,
+            работающий в разнообразных жанрах, включая ужасы, триллер, фантастику, фэнтези, мистику, драму, детектив, получил прозвище «Король ужасов».
+            Продано более 350 миллионов экземпляров его книг, по которым было снято множество художественных фильмов и сериалов, телевизионных постановок,
+            а также нарисованы различные комиксы. Кинг опубликовал 60 романов, в том числе семь под псевдонимом Ричард Бахман, и 5 научно-популярных книг.
+            Он написал около 200 рассказов, большинство из которых были собраны в девять авторских сборников.
+            Действие многих произведений Кинга происходит в его родном штате Мэн.
+
+
+           <a href="https://ru.wikipedia.org/wiki/%D0%9A%D0%B8%D0%BD%D0%B3,_%D0%A1%D1%82%D0%B8%D0%B2%D0%B5%D0%BD" class="button icon solid fa-arrow-circle-right">далее..</a>
+          </section>
+         </div>
+
+       </div>
+      </div>
+     </div>
+    </div>
+
+   <!-- Footer -->
+
+     </footer>
+    </div>
+
+   </div>
+
+  <!-- Scripts -->
+
+   <script src="{%static 'assets/js/jquery.min.js'%}"></script>
+   <script src="{%static 'assets/js/jquery.dropotron.min.js'%}"></script>
+   <script
+
+src="{%static 'assets/js/browser.min.js'%}"></script>
+   <script src="{%static 'assets/js/breakpoints.min.js'%}"></script>
+   <script src="{%static 'assets/js/util.js'%}"></script>
+   <script src="{%static 'assets/js/main.js'%}"></script>
+
+ </body>
+</html>
